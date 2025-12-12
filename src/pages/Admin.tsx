@@ -33,14 +33,14 @@ const Admin = () => {
     new: "bg-blue-500",
     in_progress: "bg-yellow-500",
     completed: "bg-green-500",
-    cancelled: "bg-gray-500"
+    rejected: "bg-red-500"
   };
 
   const statusLabels: Record<string, string> = {
     new: "Новая",
     in_progress: "В работе",
     completed: "Завершена",
-    cancelled: "Отменена"
+    rejected: "Отклонена"
   };
 
   const operationTypeLabels: Record<string, string> = {
