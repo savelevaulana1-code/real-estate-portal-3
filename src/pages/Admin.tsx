@@ -165,15 +165,15 @@ const Admin = () => {
   const totalValue = applications.reduce((sum, a) => sum + a.estimated_value, 0);
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200">
+      <header className="border-b bg-gradient-to-r from-blue-600 to-blue-700 shadow-lg">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Icon name="Building2" className="text-primary" size={32} />
-            <h1 className="text-2xl font-bold text-primary">Estate Manager</h1>
+            <Icon name="Building2" className="text-white" size={32} />
+            <h1 className="text-2xl font-bold text-white">Estate Manager</h1>
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-sm text-muted-foreground">
+            <span className="text-sm text-blue-100">
               Администратор: {currentUser?.name || 'Гость'}
             </span>
             <Button 
@@ -183,6 +183,7 @@ const Admin = () => {
                 localStorage.removeItem('user');
                 navigate('/admin/login');
               }}
+              className="bg-white/10 border-white/20 text-white hover:bg-white/20 hover:text-white"
             >
               <Icon name="LogOut" className="mr-2" size={16} />
               Выйти
@@ -192,61 +193,61 @@ const Admin = () => {
       </header>
 
       <div className="container mx-auto px-4 py-8">
-        <h2 className="text-3xl font-bold mb-6">Панель администратора</h2>
+        <h2 className="text-3xl font-bold mb-6 text-blue-900">Панель администратора</h2>
 
         <div className="grid md:grid-cols-4 gap-6 mb-8">
-          <Card className="animate-fade-in">
+          <Card className="animate-fade-in bg-white/80 backdrop-blur border-blue-200">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-muted-foreground">
+              <CardTitle className="text-sm font-medium text-blue-700">
                 Всего заявок
               </CardTitle>
-              <Icon name="FileText" className="text-primary" size={20} />
+              <Icon name="FileText" className="text-blue-600" size={20} />
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold">{totalApplications}</div>
+              <div className="text-3xl font-bold text-blue-900">{totalApplications}</div>
             </CardContent>
           </Card>
 
-          <Card className="animate-fade-in">
+          <Card className="animate-fade-in bg-white/80 backdrop-blur border-blue-200">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-muted-foreground">
+              <CardTitle className="text-sm font-medium text-blue-700">
                 Новые заявки
               </CardTitle>
-              <Icon name="Bell" className="text-accent" size={20} />
+              <Icon name="Bell" className="text-blue-500" size={20} />
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-accent">{newApplications}</div>
+              <div className="text-3xl font-bold text-blue-600">{newApplications}</div>
             </CardContent>
           </Card>
 
-          <Card className="animate-fade-in">
+          <Card className="animate-fade-in bg-white/80 backdrop-blur border-blue-200">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-muted-foreground">
+              <CardTitle className="text-sm font-medium text-blue-700">
                 В работе
               </CardTitle>
-              <Icon name="Clock" className="text-yellow-600" size={20} />
+              <Icon name="Clock" className="text-blue-500" size={20} />
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-yellow-600">{inProgressApplications}</div>
+              <div className="text-3xl font-bold text-blue-600">{inProgressApplications}</div>
             </CardContent>
           </Card>
 
-          <Card className="animate-fade-in">
+          <Card className="animate-fade-in bg-white/80 backdrop-blur border-blue-200">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-muted-foreground">
+              <CardTitle className="text-sm font-medium text-blue-700">
                 Общая сумма
               </CardTitle>
-              <Icon name="TrendingUp" className="text-green-600" size={20} />
+              <Icon name="TrendingUp" className="text-blue-500" size={20} />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">
+              <div className="text-2xl font-bold text-blue-900">
                 {(totalValue / 1000000).toFixed(1)}М ₽
               </div>
             </CardContent>
           </Card>
         </div>
 
-        <Card>
+        <Card className="bg-white/80 backdrop-blur border-blue-200">
           <CardHeader>
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
               <div>
