@@ -15,7 +15,7 @@ const Home = () => {
           <nav className="hidden md:flex items-center gap-6">
             <Link to="/" className="text-foreground hover:text-primary transition">Главная</Link>
             <Link to="/catalog" className="text-foreground hover:text-primary transition">Каталог</Link>
-            <Link to="/applications" className="text-foreground hover:text-primary transition">Заявки</Link>
+            <Link to="/applications" className="text-foreground hover:text-primary transition">Оставить заявку</Link>
             <Link to="/contacts" className="text-foreground hover:text-primary transition">Контакты</Link>
           </nav>
           <div className="flex gap-3">
@@ -142,8 +142,14 @@ const Home = () => {
       </section>
 
       <footer className="bg-primary text-white py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-blue-100">© 2024 Estate Manager. Все права защищены.</p>
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-blue-100">© 2024 Estate Manager. Все права защищены.</p>
+            <Link to="/admin/login" className="text-blue-100 hover:text-white transition text-sm inline-flex items-center gap-1">
+              <Icon name="Shield" size={16} />
+              Вход для администраторов
+            </Link>
+          </div>
         </div>
       </footer>
     </div>

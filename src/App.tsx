@@ -9,7 +9,9 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Catalog from "./pages/Catalog";
 import Applications from "./pages/Applications";
+import MyApplications from "./pages/MyApplications";
 import Admin from "./pages/Admin";
+import AdminLogin from "./pages/AdminLogin";
 import Contacts from "./pages/Contacts";
 import NotFound from "./pages/NotFound";
 
@@ -27,7 +29,9 @@ const App = () => (
           <Route path="/register" element={<Register />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/applications" element={<Applications />} />
+          <Route path="/my-applications" element={<MyApplications />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

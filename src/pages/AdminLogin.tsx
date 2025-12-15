@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import funcUrls from "../../backend/func2url.json";
 
-const Login = () => {
+const AdminLogin = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [email, setEmail] = useState("");
@@ -31,18 +31,24 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok && data.success) {
+        if (data.user.role !== 'admin') {
+          toast({
+            title: "Доступ запрещен",
+            description: "У вас нет прав администратора",
+            variant: "destructive",
+          });
+          setIsLoading(false);
+          return;
+        }
+
         localStorage.setItem('user', JSON.stringify(data.user));
         
         toast({
-          title: "Успешный вход",
+          title: "Вход выполнен",
           description: `Добро пожаловать, ${data.user.name}!`,
         });
         
-        if (data.user.role === 'admin') {
-          navigate("/admin");
-        } else {
-          navigate("/my-applications");
-        }
+        navigate("/admin");
       } else {
         toast({
           title: "Ошибка входа",
@@ -62,32 +68,33 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary via-primary to-blue-900 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md animate-scale-in">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
+      <Card className="w-full max-w-md animate-scale-in border-slate-700 bg-slate-800/50 backdrop-blur">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
-            <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-              <Icon name="Building2" className="text-white" size={32} />
+            <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-orange-600 rounded-full flex items-center justify-center shadow-lg">
+              <Icon name="Shield" className="text-white" size={32} />
             </div>
           </div>
-          <CardTitle className="text-2xl">Вход в систему</CardTitle>
-          <CardDescription>Estate Manager</CardDescription>
+          <CardTitle className="text-2xl text-white">Панель администратора</CardTitle>
+          <CardDescription className="text-slate-400">Вход для администраторов Estate Manager</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email" className="text-slate-200">Email администратора</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="your@email.com"
+                placeholder="admin@estate.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                className="bg-slate-700 border-slate-600 text-white"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Пароль</Label>
+              <Label htmlFor="password" className="text-slate-200">Пароль</Label>
               <Input
                 id="password"
                 type="password"
@@ -95,23 +102,34 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                className="bg-slate-700 border-slate-600 text-white"
               />
             </div>
-            <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading ? "Вход..." : "Войти"}
+            <Button type="submit" className="w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700" disabled={isLoading}>
+              {isLoading ? (
+                <>
+                  <Icon name="Loader2" className="mr-2 animate-spin" size={16} />
+                  Вход...
+                </>
+              ) : (
+                <>
+                  <Icon name="Shield" className="mr-2" size={16} />
+                  Войти как администратор
+                </>
+              )}
             </Button>
           </form>
-          <div className="mt-4 text-center text-sm">
-            <span className="text-muted-foreground">Нет аккаунта? </span>
-            <Link to="/register" className="text-primary hover:underline font-medium">
-              Зарегистрироваться
-            </Link>
-          </div>
-          <div className="mt-4 text-center">
-            <Link to="/" className="text-sm text-muted-foreground hover:text-primary inline-flex items-center gap-1">
+          <div className="mt-6 text-center">
+            <Link to="/" className="text-sm text-slate-400 hover:text-white inline-flex items-center gap-1">
               <Icon name="ArrowLeft" size={16} />
               На главную
             </Link>
+          </div>
+          <div className="mt-4 p-3 bg-amber-900/20 border border-amber-700/50 rounded-lg">
+            <p className="text-xs text-amber-200 text-center">
+              <Icon name="AlertTriangle" className="inline mr-1" size={14} />
+              Только для авторизованного персонала
+            </p>
           </div>
         </CardContent>
       </Card>
@@ -119,4 +137,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AdminLogin;
