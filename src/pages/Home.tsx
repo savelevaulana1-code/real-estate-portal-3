@@ -10,7 +10,7 @@ const Home = () => {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Icon name="Building2" className="text-primary" size={32} />
-            <h1 className="text-2xl font-bold text-primary">Estate Manager</h1>
+            <h1 className="text-2xl font-bold text-primary">Недвижимость.Realty</h1>
           </div>
           <nav className="hidden md:flex items-center gap-6">
             <Link to="/" className="text-foreground hover:text-primary transition">Главная</Link>
@@ -144,7 +144,7 @@ const Home = () => {
       <footer className="bg-primary text-white py-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-blue-100">© 2024 Estate Manager. Все права защищены.</p>
+            <p className="text-blue-100">© 2024 Недвижимость.Realty. Все права защищены.</p>
             <Link to="/admin/login" className="text-blue-100 hover:text-white transition text-sm inline-flex items-center gap-1">
               <Icon name="Shield" size={16} />
               Вход для администраторов

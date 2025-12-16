@@ -84,7 +84,7 @@ const Register = () => {
             </div>
           </div>
           <CardTitle className="text-2xl">Регистрация</CardTitle>
-          <CardDescription>Создайте аккаунт в Estate Manager</CardDescription>
+          <CardDescription>Создайте аккаунт в Недвижимость.Realty</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">

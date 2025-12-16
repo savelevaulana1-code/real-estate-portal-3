@@ -77,7 +77,7 @@ const AdminLogin = () => {
             </div>
           </div>
           <CardTitle className="text-2xl text-white">Панель администратора</CardTitle>
-          <CardDescription className="text-blue-200">Вход для администраторов Estate Manager</CardDescription>
+          <CardDescription className="text-blue-200">Вход для администраторов Недвижимость.Realty</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">

@@ -71,7 +71,7 @@ const Login = () => {
             </div>
           </div>
           <CardTitle className="text-2xl">Вход в систему</CardTitle>
-          <CardDescription>Estate Manager</CardDescription>
+          <CardDescription>Недвижимость.Realty</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">

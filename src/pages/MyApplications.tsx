@@ -111,7 +111,7 @@ const MyApplications = () => {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <Icon name="Building2" className="text-primary" size={32} />
-            <h1 className="text-2xl font-bold text-primary">Estate Manager</h1>
+            <h1 className="text-2xl font-bold text-primary">Недвижимость.Realty</h1>
           </Link>
           <div className="flex items-center gap-4">
             <span className="text-sm text-muted-foreground hidden sm:inline">

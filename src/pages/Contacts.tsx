@@ -24,7 +24,7 @@ const Contacts = () => {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <Icon name="Building2" className="text-primary" size={32} />
-            <h1 className="text-2xl font-bold text-primary">Estate Manager</h1>
+            <h1 className="text-2xl font-bold text-primary">Недвижимость.Realty</h1>
           </Link>
           <nav className="hidden md:flex items-center gap-6">
             <Link to="/" className="text-foreground hover:text-primary transition">Главная</Link>

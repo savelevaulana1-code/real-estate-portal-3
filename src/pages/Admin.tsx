@@ -170,7 +170,7 @@ const Admin = () => {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Icon name="Building2" className="text-white" size={32} />
-            <h1 className="text-2xl font-bold text-white">Estate Manager</h1>
+            <h1 className="text-2xl font-bold text-white">Недвижимость.Realty</h1>
           </div>
           <div className="flex items-center gap-4">
             <span className="text-sm text-blue-100">
